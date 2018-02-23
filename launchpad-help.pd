@@ -1,0 +1,47 @@
+#N canvas 0 78 1920 977 10;
+#X obj 267 225 route grid side top, f 75;
+#X obj 265 104 list prepend;
+#X msg 338 69 grid;
+#X msg 385 69 side;
+#X msg 430 69 top;
+#X text 154 14 Send msgs in format;
+#X text 194 33 X Y Val;
+#X text 174 58 e.g.;
+#X msg 228 61 0 3 1;
+#X text 22 14 Val = colour;
+#X text 23 34 0 = off;
+#X text 24 54 1 = yellow;
+#X text 24 78 2 = green;
+#X text 23 102 3 = red;
+#X msg 267 302 \$3 \$1 \$2;
+#X obj 267 360 route 1;
+#X text 333 357 this filters out button releases (so you only receive
+messages when you push a button), f 46;
+#X text 612 251 top line of buttons;
+#X text 430 251 right side buttons;
+#X text 277 248 grid output;
+#X text 36 178 for immediate feedback;
+#X obj 207 178 t a a, f 9;
+#X text 350 304 Move 3rd value in list to beginning (1 for note ON
+\, 0 for note OFF), f 67;
+#X text 285 180 list output format: zone (grid/side/top) \, X (column)
+\, Y (row) \, on/off (1/0), f 77;
+#X obj 265 141 launchpad 1 1;
+#X text 360 141 arg1 is MIDI port IN number and arg2 is MIDI port OUT
+number, f 68;
+#X text 335 43 Choose destination (grid requires both X and Y coordinates)
+, f 64;
+#X text 292 13 launchpad top left button is coordinate 0 0 \, bottom
+right is 7 7, f 69;
+#X obj 265 408 print;
+#X connect 0 0 14 0;
+#X connect 1 0 24 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 1;
+#X connect 4 0 1 1;
+#X connect 8 0 1 0;
+#X connect 14 0 15 0;
+#X connect 15 0 28 0;
+#X connect 21 0 24 0;
+#X connect 21 1 0 0;
+#X connect 24 0 21 0;
